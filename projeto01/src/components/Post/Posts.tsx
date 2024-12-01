@@ -1,8 +1,8 @@
-import './styles.css'
+import styles from './Posts.module.css'
 
-import { PostCard } from '../PostCard'
+import { PostCard } from '../PostCard/PostCard'
 
-interface PostProps {
+export interface PostProps {
   title: string
   body: string
   id: number
@@ -10,12 +10,12 @@ interface PostProps {
 }
 
 interface PostsProps {
-  posts: PostProps[]
+  posts?: PostProps[]
 }
 
 export function Posts({ posts = [] }: PostsProps) {
   return (
-    <div className='posts'>
+    <div className={styles.posts}>
       {posts.map(post => (
         <PostCard
           key={post.id}

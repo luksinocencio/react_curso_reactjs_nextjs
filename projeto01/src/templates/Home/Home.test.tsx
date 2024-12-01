@@ -1,16 +1,15 @@
-import { rest } from 'msw'
+import { http } from 'msw'
 import { setupServer } from 'msw/node'
-
 import {
   render,
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Home } from '.'
+import { Home } from './Home'
 
 const handlers = [
-  rest.get('*jsonplaceholder.typicode.com*', async (req, res, ctx) => {
+  http.get('*jsonplaceholder.typicode.com*', async (req, res, ctx) => {
     return res(
       ctx.json([
         {

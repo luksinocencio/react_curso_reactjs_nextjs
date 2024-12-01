@@ -1,4 +1,4 @@
-import './styles.css'
+import styles from './PostCard.module.css'
 
 interface PostCardProps {
   title: string
@@ -9,7 +9,7 @@ interface PostCardProps {
 
 export function PostCard({ title, cover, body, id }: PostCardProps) {
   return (
-    <div className='post'>
+    <div className={styles.post}>
       <img src={cover} alt={title} />
       <div className='post-content'>
         <h2>

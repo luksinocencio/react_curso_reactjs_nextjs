@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react'
-import './styles.css'
+import './TextInput.module.css'
 
 interface TextInputProps {
   searchValue: string

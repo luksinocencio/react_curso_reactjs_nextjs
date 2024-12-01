@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { TextInput } from '.'
+import { TextInput } from './TextInput'
 
 describe('<TextInput />', () => {
   it('should have a value of searchValue', () => {
     const fn = jest.fn()
     render(<TextInput handleChange={fn} searchValue={'testando'} />)
 
-    const input = screen.getByPlaceholderText(/type your search/i)
+    const input = screen.getByPlaceholderText(/type your search/i) as HTMLInputElement
     expect(input.value).toBe('testando')
   })
 
@@ -16,7 +16,7 @@ describe('<TextInput />', () => {
     const fn = jest.fn()
     render(<TextInput handleChange={fn} searchValue='um valor qualquer' />)
 
-    const input = screen.getByPlaceholderText(/type your search/i)
+    const input = screen.getByPlaceholderText(/type your search/i) as HTMLInputElement
     const value = 'o valor'
 
     userEvent.type(input, value)

@@ -1,6 +1,7 @@
+import "@testing-library/jest-dom";
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { Button } from '.'
+import { Button } from './Button'
 
 describe('<Button />', () => {
   it('should render the button with the text "Load more"', () => {
@@ -15,6 +16,7 @@ describe('<Button />', () => {
 
   it('should call function on button click', () => {
     const fn = jest.fn()
+
     render(<Button text='Load more' disabled={false} onClick={fn} />)
 
     const button = screen.getByRole('button', { name: /load more/i })

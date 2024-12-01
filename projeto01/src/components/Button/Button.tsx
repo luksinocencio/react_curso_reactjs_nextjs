@@ -1,4 +1,4 @@
-import './styles.css'
+import styles from './Button.module.css'
 
 interface ButtonProps {
   text: string
@@ -8,7 +8,7 @@ interface ButtonProps {
 
 export function Button({ text, onClick, disabled = false }: ButtonProps) {
   return (
-    <button className='button' onClick={onClick} disabled={disabled}>
+    <button className={styles.button} onClick={onClick} disabled={disabled}>
       {text}
     </button>
   )

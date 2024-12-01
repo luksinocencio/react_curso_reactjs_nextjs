@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
+import {ChangeEvent, useCallback, useEffect, useState} from 'react'
 
-import './styles.css'
+import styles from './Home.module.css'
 
-import { Button } from '../../components/Button'
+import { Button } from '../../components/Button/Button'
 
-import { Posts } from '../../components/Post'
-import { TextInput } from '../../components/TextInput'
+import {PostProps, Posts} from '../../components/Post/Posts'
+import { TextInput } from '../../components/TextInput/TextInput'
 import { loadPosts } from '../../utils/load-posts'
 
 export const Home = () => {
@@ -39,21 +39,21 @@ export const Home = () => {
     setPage(nextPage)
   }
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     setSearchValue(value)
   }
 
   const noMorePosts = page + postsPerPage >= allPosts.length
   const filteredPosts = searchValue
-    ? allPosts.filter(post => {
+    ? allPosts.filter((post: PostProps) => {
         return post.title.toLowerCase().includes(searchValue.toLowerCase())
       })
     : posts
 
   return (
-    <section className='container'>
-      <div className='search-container'>
+    <section className={styles.container}>
+      <div className={styles.searchContainer}>
         {!!searchValue && <h1>Search value: {searchValue}</h1>}
 
         <TextInput searchValue={searchValue} handleChange={handleChange} />
@@ -63,7 +63,7 @@ export const Home = () => {
 
       {filteredPosts.length === 0 && <p>Não existem posts =(</p>}
 
-      <div className='button-container'>
+      <div className={styles.buttonContainer}>
         {!searchValue && (
           <Button
             text='Load more posts'
