@@ -1,7 +1,5 @@
 import {fireEvent, render, screen} from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-
-import {TextInput} from './TextInput'
+import {TextInput} from "./TextInput"
 
 describe('<TextInput />', () => {
     it('should have a value of searchValue', () => {
@@ -19,7 +17,7 @@ describe('<TextInput />', () => {
         const input = screen.getByPlaceholderText(/type your search/i) as HTMLInputElement;
         const value = 'o valor';
 
-        fireEvent.change(input, { target: { value: value } });
+        fireEvent.change(input, {target: {value: value}});
 
         expect(input.value).toBe(value);
     })
