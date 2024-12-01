@@ -1,6 +1,5 @@
 import "@testing-library/jest-dom";
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import {fireEvent, render, screen} from '@testing-library/react'
 import { Button } from './Button'
 
 describe('<Button />', () => {
@@ -20,8 +19,7 @@ describe('<Button />', () => {
     render(<Button text='Load more' disabled={false} onClick={fn} />)
 
     const button = screen.getByRole('button', { name: /load more/i })
-
-    userEvent.click(button)
+    fireEvent.click(button)
 
     expect(fn).toHaveBeenCalledTimes(1)
   })

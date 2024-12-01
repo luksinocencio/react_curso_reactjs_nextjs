@@ -1,5 +1,6 @@
-import { http } from 'msw'
+import { http, HttpResponse } from 'msw'
 import { setupServer } from 'msw/node'
+
 import {
   render,
   screen,
@@ -9,9 +10,8 @@ import userEvent from '@testing-library/user-event'
 import { Home } from './Home'
 
 const handlers = [
-  http.get('*jsonplaceholder.typicode.com*', async (req, res, ctx) => {
-    return res(
-      ctx.json([
+    http.get('*jsonplaceholder.typicode.com*', () => {
+      return HttpResponse.json([
         {
           userId: 1,
           id: 1,
@@ -34,8 +34,7 @@ const handlers = [
           url: 'img3.jpg',
         },
       ])
-    )
-  }),
+    })
 ]
 
 const server = setupServer(...handlers)
