@@ -1,17 +1,20 @@
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 
 interface ComponentHookUseCallbackProps {}
 
-function Button({ incrementButton }: { incrementButton: (num: number) => void }) {
+const Button = memo(({ incrementButton }: { incrementButton: (num: number) => void }) => {
+  console.log('filho renderizou')
   return <button onClick={() => incrementButton(10)}>+</button>
-}
+})
 
 export function ComponentHookUseCallbackProps({}: ComponentHookUseCallbackProps) {
   const [count, setCount] = useState(0)
 
-  function incrementCounter(num: number) {
+  const incrementCounter = useCallback((num: number) => {
     setCount(prevCount => prevCount + num)
-  }
+  }, [])
+
+  console.log('pai renderizou')
 
   return (
     <div>
