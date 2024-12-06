@@ -16,7 +16,7 @@ export function ComponentHookUseState({}: ComponentHookUseStateProps) {
 
   return (
     <div>
-      <h1>Hello World!</h1>
+      <h1>Hello useState!</h1>
       <p>Count: {count}</p>
       <button onClick={handleIncrement}>Increment</button>
     </div>

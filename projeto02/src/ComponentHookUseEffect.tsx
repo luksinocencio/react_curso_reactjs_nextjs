@@ -13,9 +13,9 @@ function eventFn() {
  * - Array de Dependências: Controla quando o efeito é executado. Se o array estiver vazio, o efeito executa uma vez após o primeiro render.
  * - Função de Limpeza: Usada para limpar efeitos colaterais (ex: remover um listener de eventos).
  * Vantagens:
-  - Flexibilidade: Permite realizar diversos tipos de efeitos colaterais de maneira declarativa.
+ - Flexibilidade: Permite realizar diversos tipos de efeitos colaterais de maneira declarativa.
  * - Organização: Mantém o código mais limpo e organizado, separado por propósito.
-*/
+ */
 
 export function ComponentHookUseEffect({}: ComponentHookUseEffectProps) {
   const [count, setCount] = useState(0)
@@ -53,7 +53,7 @@ export function ComponentHookUseEffect({}: ComponentHookUseEffectProps) {
 
   return (
     <div>
-      <h1>Hello World!</h1>
+      <h1>Hello UseEffect!</h1>
       <p>Countador: {count}</p>
       <button onClick={handleIncrement}>Increment</button>
     </div>
